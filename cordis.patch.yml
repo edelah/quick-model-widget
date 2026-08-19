@@ -1,0 +1,6 @@
+# Add the browser-only widget to a DSH profile.
+# Install with:
+#   dsh plugin --profile web add link:/path/to/quick-model-widget
+- insert:
+    - id: ui-quick-model-widget
+      name: quick-model-widget

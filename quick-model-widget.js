@@ -1,15 +1,10 @@
 /*
- * DSH quick model + reasoning switcher
+ * Shared source helpers for the DSH quick model + reasoning widget.
  *
- * This is the extracted source for the widget integrated into
- * @deepseek-ai/dsh-client-ui-model-selection.
+ * The standalone DSH plugin integration lives in src/client.js. This file
+ * keeps the recent-selection storage and compact renderer reusable.
  *
- * Runtime integration:
- *   ModelSelect keeps `recents` in React state, calls `rememberSelection()`
- *   when the host reports a selection, and renders `QuickModelSwitcher`
- *   beside the normal model trigger.
- *
- * The widget intentionally keeps the row stable:
+ * The row intentionally stays stable:
  *   - selecting an existing entry does not move it;
  *   - a new entry is appended on the right;
  *   - adding a fourth entry drops the oldest entry on the left.

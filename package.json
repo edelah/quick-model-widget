@@ -1,0 +1,44 @@
+{
+  "name": "quick-model-widget",
+  "version": "0.1.0",
+  "description": "A compact DSH model and reasoning quick-switcher showing the last three choices.",
+  "type": "module",
+  "main": "lib/index.js",
+  "exports": {
+    ".": "./lib/index.js",
+    "./client": "./lib/client.js",
+    "./package.json": "./package.json",
+    "./src/*": "./src/*"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "inject": [
+        "@deepseek-ai/dsh-client-connection",
+        "@deepseek-ai/dsh-client-runtime",
+        "@deepseek-ai/dsh-client-ui-conversation"
+      ]
+    }
+  },
+  "peerDependencies": {
+    "react": ">=18"
+  },
+  "files": [
+    "lib",
+    "src",
+    "quick-model-widget.js",
+    "quick-model-widget.md",
+    "cordis.patch.yml",
+    "README.md",
+    "package.json",
+    "scripts"
+  ],
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "check": "node --check lib/index.js && node --input-type=module --check < src/client.js && node --check lib/client.js"
+  },
+  "license": "MIT"
+}
